@@ -42,11 +42,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## 🏃 How to Run
 
-1.  **Navigate to the `target` directory:**
-    ```bash
-    cd target
-    ```
-2.  **Execute the application:**
+1.  **Execute the application:**
     ```bash
     java -jar target/tax-calculator-cli-1.0.0-SNAPSHOT.jar
     ```
