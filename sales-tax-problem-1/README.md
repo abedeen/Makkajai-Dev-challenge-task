@@ -1,6 +1,3 @@
-Here's a `README.md` file for your production-grade Java CLI Tax Calculator project:
-
------
 
 # 📊 Java Sales Tax Calculator CLI
 
