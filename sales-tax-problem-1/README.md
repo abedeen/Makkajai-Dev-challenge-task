@@ -50,7 +50,7 @@ These instructions will get you a copy of the project up and running on your loc
     ```
 2.  **Execute the application:**
     ```bash
-    java -jar tax-calculator-cli-1.0.0-SNAPSHOT.jar
+    java -jar target/tax-calculator-cli-1.0.0-SNAPSHOT.jar
     ```
 
 ### CLI Usage
@@ -101,11 +101,11 @@ You can run the application with an optional debug flag:
 
   * `--debug` or `-d`: Enables verbose debug logging output to the console.
     ```bash
-    java -jar tax-calculator-cli-1.0.0-SNAPSHOT.jar --debug
+    java -jar target/tax-calculator-cli-1.0.0-SNAPSHOT.jar --debug
     ```
   * `--help` or `-h`: Displays the help message with available options.
     ```bash
-    java -jar tax-calculator-cli-1.0.0-SNAPSHOT.jar --help
+    java -jar target/tax-calculator-cli-1.0.0-SNAPSHOT.jar --help
     ```
 
 ## 🧪 Running Tests
@@ -129,7 +129,7 @@ my-tax-calculator/
     ├── main/
     │   ├── java/
     │   │   └── com/
-    │   │       └── yourcompany/
+    │   │       └── makkajai/
     │   │           └── taxcalculator/
     │   │               ├── cli/                # Main CLI application entry point
     │   │               ├── config/             # Application constants and configuration
@@ -141,7 +141,7 @@ my-tax-calculator/
     └── test/
         └── java/
             └── com/
-                └── yourcompany/
+                └── makkajai/
                     └── taxcalculator/
                         ├── model/              # Tests for model classes
                         └── service/            # Tests for service classes

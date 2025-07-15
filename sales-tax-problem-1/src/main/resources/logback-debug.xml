@@ -10,7 +10,7 @@
         <appender-ref ref="STDOUT" />
     </root>
 
-    <logger name="com.yourcompany.taxcalculator" level="trace" additivity="false">
+    <logger name="com.makkajai.taxcalculator" level="trace" additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
 
