@@ -114,7 +114,7 @@ mvn test
 The project follows a standard Maven directory layout and is organized into logical packages:
 
 ```
-my-tax-calculator/
+sales-tax-problem-1/
 ├── pom.xml                                 # Maven Project Object Model
 └── src/
     ├── main/
