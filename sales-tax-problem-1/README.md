@@ -4,8 +4,6 @@ Here's a `README.md` file for your production-grade Java CLI Tax Calculator proj
 
 # 📊 Java Sales Tax Calculator CLI
 
-This is a production-grade Command Line Interface (CLI) application developed in Java for calculating sales taxes and total prices for various shopping basket items. It adheres to best practices for robustness, maintainability, and user experience, incorporating features like structured logging, robust input parsing, and dependency management.
-
 ## ✨ Features
 
   * **Sales Tax Calculation:** Accurately calculates basic sales tax (10%) and import duty (5%) on items.
