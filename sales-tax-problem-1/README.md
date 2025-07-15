@@ -27,7 +27,7 @@ These instructions will get you a copy of the project up and running on your loc
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/your-username/my-tax-calculator.git
-    cd my-tax-calculator
+    cd sales-tax-problem-1
     ```
     (Replace `https://github.com/your-username/my-tax-calculator.git` with your actual repository URL).
 2.  **Build the project:**
