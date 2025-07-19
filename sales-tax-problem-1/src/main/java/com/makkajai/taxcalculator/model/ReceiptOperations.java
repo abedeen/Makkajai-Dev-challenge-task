@@ -7,7 +7,8 @@ import java.util.List;
  */
 public interface ReceiptOperations {
     void addItem(Item item);
+    void addAllItems(List<Item> itemList);
     double getTotalTax();
     double getTotal();
-    List<ReceiptLine> getReceiptLines();
+    List<ReceiptItem> getReceiptLines();
 }

@@ -1,7 +1,7 @@
 package com.makkajai.taxcalculator.service;
 
 import com.makkajai.taxcalculator.model.ReceiptOperations;
-import com.makkajai.taxcalculator.model.ReceiptLine;
+import com.makkajai.taxcalculator.model.ReceiptItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +20,7 @@ public class ReceiptPrinter {
         }
 
         logger.info("Printing receipt...");
-        for (ReceiptLine line : receipt.getReceiptLines()) {
+        for (ReceiptItem line : receipt.getReceiptLines()) {
             // Using quantity in the print statement
             System.out.printf("%d %s: %.2f%n",
                     line.getItem().getQuantity(),

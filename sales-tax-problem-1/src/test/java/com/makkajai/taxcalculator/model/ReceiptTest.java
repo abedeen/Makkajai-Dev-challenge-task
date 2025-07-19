@@ -62,7 +62,7 @@ class ReceiptTest {
         when(mockTaxService.calculateTax(item1)).thenReturn(0.00);
         receipt.addItem(item1);
 
-        List<ReceiptLine> lines = receipt.getReceiptLines();
+        List<ReceiptItem> lines = receipt.getReceiptLines();
         assertThrows(UnsupportedOperationException.class, () -> lines.add(null));
     }
 

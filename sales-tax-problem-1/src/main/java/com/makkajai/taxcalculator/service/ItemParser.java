@@ -6,6 +6,7 @@ import com.makkajai.taxcalculator.model.ItemType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,39 +16,36 @@ import java.util.regex.Pattern;
 public class ItemParser {
 
     private static final Logger logger = LoggerFactory.getLogger(ItemParser.class);
+
     // Regex to parse input like "1 imported bottle of perfume at 27.99"
     private static final Pattern ITEM_PATTERN = Pattern.compile("(\\d+)\\s(.+)\\sat\\s(\\d+\\.\\d{2})");
 
-    public Item parseItem(String inputLine) {
-        if (inputLine == null || inputLine.trim().isEmpty()) {
-            throw new IllegalArgumentException("Input line cannot be empty.");
-        }
+    public boolean isvalid(String[] item){
+
+        if(Arrays.stream(item).filter(p-> p.length()==0).count()>0) return false;
+        return true;
+    }
+    public Matcher buildMatch(String inputLine){
 
         Matcher matcher = ITEM_PATTERN.matcher(inputLine);
-        if (!matcher.matches()) {
-            logger.warn("Input string did not match expected pattern: {}", inputLine);
-            throw new IllegalArgumentException("Invalid item format. Expected: 'QUANTITY ITEM_NAME at PRICE'");
-        }
 
-        try {
-            int quantity = Integer.parseInt(matcher.group(1));
-            String name = matcher.group(2).trim();
-            double price = Double.parseDouble(matcher.group(3));
+        return matcher;
+    }
+    public String[] toStringStage1(Matcher matcher) {
+        String[] item = new String[3]; // Declare and initialize a String array of size 3
+        item[0] = matcher.group(1); //quantity
+        item[1] = matcher.group(2); // name
+        item[2] = matcher.group(3); // price
+        return item;
+    }
+    public Item parseItem(String[] item){
 
-            boolean isImported = name.toLowerCase().contains("imported");
-            // Clean the name after checking for 'imported'
-            name = name.replace("imported ", "").trim();
+        boolean isImported = item[1].toLowerCase().contains("imported");
 
-            ItemType type = determineItemType(name);
+        ItemType type = determineItemType(item[2]);
 
-            return new Item(name, price, isImported, type, quantity);
-        } catch (NumberFormatException e) {
-            logger.error("Failed to parse number from input: {}", inputLine, e);
-            throw new IllegalArgumentException("Invalid number format in input. Price and quantity must be valid numbers.", e);
-        } catch (Exception e) {
-            logger.error("An unexpected error occurred during item parsing for input: {}", inputLine, e);
-            throw new RuntimeException("Failed to parse item due to an unexpected error.", e);
-        }
+        return new Item(item[1], Double.parseDouble(item[3]), isImported, type, Integer.parseInt(item[0]));
+
     }
 
     /**
