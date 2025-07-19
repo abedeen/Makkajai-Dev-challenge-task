@@ -24,8 +24,8 @@ public class ProcessRequest {
         List<String[]> result= new ArrayList<>();
         for(String item: data) {
 
-            Matcher matcher = itemParser.buildMatch(item);
-            String[] matchString = itemParser.toStringStage1(matcher);
+         //   Matcher matcher =
+            String[] matchString = itemParser.buildMatch(item);
             result.add(matchString);
         }
     return result;
