@@ -19,7 +19,7 @@ public final class AppConfig {
     public static final int EXIT_CODE_UNEXPECTED_ERROR = 99;
 
     // Item type keywords - can be loaded from a properties file for more flexibility
-    public static final String[] BOOK_KEYWORDS = {"book"};
+    public static final String[] BOOK_KEYWORDS = {"book", "pen"};
     public static final String[] FOOD_KEYWORDS = {"chocolate", "food"};
     public static final String[] MEDICAL_KEYWORDS = {"pill", "headache"}; // Added 'headache' for example
 }

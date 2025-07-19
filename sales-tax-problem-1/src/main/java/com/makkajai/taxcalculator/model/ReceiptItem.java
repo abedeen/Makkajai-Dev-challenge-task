@@ -23,13 +23,4 @@ public class ReceiptItem {
     public double getTax() { return tax; }
     public double getTotalPrice() { return totalPrice; }
 
-    @Override
-    public String toString() {
-        return "ReceiptLine{" +
-               "item=" + item.getName() +
-               ", quantity=" + item.getQuantity() +
-               ", tax=" + String.format("%.2f", tax) +
-               ", totalPrice=" + String.format("%.2f", totalPrice) +
-               '}';
-    }
 }

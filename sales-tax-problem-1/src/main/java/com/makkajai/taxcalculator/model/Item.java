@@ -33,31 +33,4 @@ public class Item {
     public ItemType getType() { return type; }
     public int getQuantity() { return quantity; }
 
-    @Override
-    public String toString() {
-        return "Item{" +
-               "name='" + name + '\'' +
-               ", price=" + price +
-               ", isImported=" + isImported +
-               ", type=" + type +
-               ", quantity=" + quantity +
-               '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Item item = (Item) o;
-        return Double.compare(price, item.price) == 0 &&
-               isImported == item.isImported &&
-               quantity == item.quantity &&
-               name.equals(item.name) &&
-               type == item.type;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, price, isImported, type, quantity);
-    }
 }

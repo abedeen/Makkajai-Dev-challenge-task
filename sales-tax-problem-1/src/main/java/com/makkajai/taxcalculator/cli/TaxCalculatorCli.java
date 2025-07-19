@@ -20,10 +20,9 @@ import java.util.concurrent.Callable;
 public class TaxCalculatorCli implements Callable<Integer> {
 
     private InputService inputService;
-    private  OutputService outputService;
     private ProcessRequest processRequest;
-    public TaxCalculatorCli(InputService inputService, OutputService outputService){
-         this.inputService= inputService; this.outputService=outputService; this.processRequest = new ProcessRequest(new ItemParser());
+    public TaxCalculatorCli(InputService inputService){
+         this.inputService= inputService;  this.processRequest = new ProcessRequest(new ItemParser());
     }
     private static final Logger logger = LoggerFactory.getLogger(TaxCalculatorCli.class);
 
@@ -60,7 +59,7 @@ public class TaxCalculatorCli implements Callable<Integer> {
     }
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new TaxCalculatorCli(new InputCliServiceImpl(),new OutputCliServiceImpl())).execute(args);
+        int exitCode = new CommandLine(new TaxCalculatorCli(new InputCliServiceImpl())).execute(args);
         System.exit(exitCode);
     }
 }
