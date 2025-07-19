@@ -15,51 +15,39 @@ import java.util.Scanner;
 public class InputCliServiceImpl extends  InputService{
 
     private static final Logger logger = LoggerFactory.getLogger(InputCliServiceImpl.class);
-    public String read(Scanner scanner) { // Accept Scanner as a parameter
-        String line = "";
+    public String read1(Scanner scanner) {
+        String temp="";
         try {
-            if (scanner.hasNextLine()) { // Check if there's a next line before reading
-                line = scanner.nextLine();
+            if (scanner.hasNextLine()) {
+                temp = scanner.nextLine();
+                System.out.print("");
             } else {
-                // Handle case where no more lines are available (e.g., end of input)
+                // End of input (stream closed or EOF)
                 return null;
             }
-        } catch (InputMismatchException e) {
-            logger.error("Input stream error, scanner closed unexpectedly or incorrect input type. " + e.getMessage());
-            System.err.println("An unexpected input error occurred. Please try again.");
-            line = null; // Set line to null to indicate an error
         } catch (Exception e) {
-            logger.error("An unhandled error occurred during application execution: " + e.getMessage());
-            System.err.println("An unhandled error occurred. Please contact support.");
-            return null; // Set line to null for unhandled errors
+            logger.error("An error occurred while reading input: " + e.getMessage());
+            System.err.println("An error occurred while reading input.");
+            return null;
         }
-        return line;
+        return temp;
     }
-
 
     public List<String> read() {
-
-        List<String> lines= new ArrayList<>();
-        System.out.println("Enter multiple lines of text. Type 'exit' to stop.");
+        List<String> lines = new ArrayList<>();
+        System.out.println("Enter multiple lines of text. Type 'exit' to stop."); // Note: your prompt said 'exit' but code breaks on empty.
         // Create a single Scanner instance for multiple reads
-        try (Scanner consoleScanner = new Scanner(System.in)) {
-            String inputLine;
-
-            while (true) {
-                inputLine = read(consoleScanner); // Pass the same scanner
-                if (inputLine == null)
-                    break;
-                 else
-                if (inputLine.equals(""))
-                    break;
-
-                else lines.add(inputLine);
-
-            }
-        } catch (Exception e) {
-            logger.error("Error managing scanner lifecycle: " + e.getMessage());
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+          //  System.out.print("Enter input: ");
+            String line = read1(scanner);
+            if (line == null || line.isEmpty())
+                break;
+            else lines.add(line);
         }
-    return lines;
+        return lines;
     }
+
+
 
 }
